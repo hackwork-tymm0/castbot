@@ -2,7 +2,6 @@
 Telegram Chromecast bot
 
 ## Installition
-----------------------------------------------
 ```
 $ sudo npm install castbot -g
 ```

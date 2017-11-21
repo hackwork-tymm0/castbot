@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "./bin/castbot.js",
-    "dev": "nodemon ./bin/castbot.js ./Files"
+    "dev": "clear && nodemon ./bin/castbot.js ./Files"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,8 @@
   "dependencies": {
     "base-64": "^0.1.0",
     "chromecast-api": "^0.2.5",
+    "express": "^4.16.2",
+    "ip": "^1.1.5",
     "node-telegram-bot-api": "^0.29.0",
     "tymlogger": "^1.0.0",
     "write-json-file": "^2.3.0"

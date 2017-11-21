@@ -2,6 +2,7 @@
 const Telegram = require("node-telegram-bot-api");
 const TymLogger = require("tymlogger");
 const List = require("./bot_methods/List");
+const Player = require("./bot_methods/Player");
 
 class Bot {
     
@@ -52,8 +53,7 @@ class Bot {
                             inline_keyboard: [
                                 
                                 [{text: "Видео", callback_data: "list.video"}],
-                                [{text: "Музыка", callback_data: "list.music"}],
-                                [{text: "Фото", callback_data: "list.photo"}]
+                                [{text: "Музыка", callback_data: "list.music"}]
                                 
                             ]
                             
@@ -72,8 +72,7 @@ class Bot {
                             inline_keyboard: [
                                 
                                 [{text: "Видео", callback_data: "list.video"}],
-                                [{text: "Музыка", callback_data: "list.music"}],
-                                [{text: "Фото", callback_data: "list.photo"}]
+                                [{text: "Музыка", callback_data: "list.music"}]
                                 
                             ]
                             
@@ -90,6 +89,7 @@ class Bot {
         bot.on("callback_query", (callback) => {
             
             const botModule = callback.data.split(".")[0];
+            const botMethod = callback.data.split(".")[1];
             
             logger.write("===> " + callback.data);
             
@@ -97,13 +97,17 @@ class Bot {
                     
                 case "list":
                     
-                    const list = new List(bot, callback.message.chat.id, callback.data.split(".")[1], this.fileslist);
+                    const list = new List(bot, callback.message.chat.id, botMethod, this.fileslist);
                     
                     list.start();
                     
                 break;
                     
                 case "player":
+                    
+                    const player = new Player(botMethod, this.fileslist, bot, callback.message.chat.id);
+                    
+                    player.start(device);
                     
                 break;
                     

@@ -32,10 +32,6 @@ class Cast {
             const filesList = files.getFiles();
 
             setTimeout(() => {
-
-                var urlMedia = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/big_buck_bunny_1080p.mp4';
-
-                console.log(filesList);
                 
                 const bot = new Bot(this.token, this.dir, filesList);
 

@@ -41,26 +41,6 @@ class Files {
                         
                         break;
                         
-                    // Photo
-                        
-                        case "png":
-                        
-                            data.photo.push({name: fileSplitted[0], ext: ext});
-                        
-                        break;
-                        
-                        case "jpg":
-                        
-                            data.photo.push({name: fileSplitted[0], ext: ext});
-                    
-                        break;
-                        
-                        case "gif":
-                        
-                            data.photo.push({name: fileSplitted[0], ext: ext});
-                    
-                        break;
-                        
                     // Music
                         
                         case "mp3":

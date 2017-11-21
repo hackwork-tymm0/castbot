@@ -14,7 +14,7 @@ function Music (list, pos = null) {
         
     for (item of list) {
 
-        keyboard.push([{ text: item.name, callback_data: "player.play@" + Base64.encode(item.name + "." + item.ext)}])
+        keyboard.push([{ text: item.name, callback_data: "player.music@" + Base64.encode(item.name + "." + item.ext)}])
 
     }
     
@@ -28,7 +28,7 @@ function Video (list) {
         
     for (item of list) {
 
-        keyboard.push([{ text: item.name, callback_data: "player.play@" + Base64.encode(item.name + "." + item.ext)}])
+        keyboard.push([{ text: item.name, callback_data: "player.video@" + Base64.encode(item.name + "." + item.ext)}])
 
     }
     
@@ -40,9 +40,11 @@ function Photo (list) {
     
     let keyboard = [];
         
+    let counter = 0;
+    
     for (item of list) {
 
-        keyboard.push([{ text: item.name, callback_data: "player.play@" + Base64.encode(item.name + "." + item.ext)}])
+        keyboard.push([{ text: item.name, callback_data: "player.photo@" + Base64.encode(item.name + "." + item.ext)}])
 
     }
     
@@ -89,7 +91,7 @@ class List {
                         })
                     });
 
-                    logger.success("Отправлен список музыки");
+                    logger.success("Отправлен список фото");
 
                 break; 
 
@@ -101,7 +103,7 @@ class List {
                         })
                     });
 
-                    logger.success("Отправлен список музыки");
+                    logger.success("Отправлен список видео");
 
                 break;
 

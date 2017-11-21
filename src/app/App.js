@@ -1,6 +1,7 @@
 
 const TymLogger = require("tymlogger");
 const Cast = require("./Cast");
+const Express = require("express");
 
 class App {
     
@@ -8,18 +9,27 @@ class App {
         
         this.dir = options.dir;
         this.token = options.token;
+        this.port = options.port;
         
     }
     
     start () {
         
-        const logger = new TymLogger();
+        const app = Express();
         
-        logger.write("Подключение к Chromecast");
+        app.use(Express.static(this.dir));
         
-        const bot = new Cast(this.token, this.dir);
-        
-        bot.start();
+        app.listen(this.port, () => {
+            
+            const logger = new TymLogger();
+
+            logger.write("Подключение к Chromecast");
+
+            const bot = new Cast(this.token, this.dir);
+
+            bot.start();
+            
+        });
         
     }
     

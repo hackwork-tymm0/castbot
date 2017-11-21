@@ -10,7 +10,8 @@ class CLI {
     
         const logger = new TymLogger();
         
-        let token = require("../token.json").token;
+        let token = require("../settings/token.json").token;
+        let port = require("../settings/port.json").port;
         let workingDirectory = process.cwd();
         
         logger.write("castbot запускается...");
@@ -39,6 +40,29 @@ class CLI {
                 }
 
             break;
+                
+            case "port":
+                
+                 logger.write("Настройка порта");
+                
+                if (process.argv[3] !== undefined) {
+                    
+                    logger.write("Порт: " + process.argv[3]);
+                    logger.write("Запись порта в файл...");
+                    
+                    JSONWrite(Path.join(__dirname, "..", "port.json"), { port: parseInt(process.argv[3]) }).then(() => {
+                        
+                        logger.success("Файл настроек перезаписан!");
+                        
+                    });
+                    
+                } else {
+                    
+                    logger.error("порт не введен!");
+                    
+                }
+                
+            break;
 
             case undefined:
                 
@@ -46,6 +70,7 @@ class CLI {
                 logger.write("Directory: " + workingDirectory);
                 
                 const undefinedApp = new App({
+                    port: port,
                     token: token,
                     dir: workingDirectory
                 });
@@ -70,6 +95,7 @@ class CLI {
                 logger.write("Directory: " + workingDirectory);
             
                 const defaultApp = new App({
+                    port: port,
                     token: token, 
                     dir: workingDirectory
                 });

@@ -1,0 +1,36 @@
+{
+  "name": "castbot",
+  "version": "0.0.1",
+  "description": "Telegram Chromecast bot",
+  "main": "./src/app/App.js",
+  "bin": {
+    "castbot": "./bin/castbot.js"
+  },
+  "scripts": {
+    "test": "./bin/castbot.js",
+    "dev": "nodemon ./bin/castbot.js ./Files"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackwork-tymm0/castbot.git"
+  },
+  "keywords": [
+    "bot",
+    "telegram",
+    "chromecast",
+    "iot"
+  ],
+  "author": "tymm0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hackwork-tymm0/castbot/issues"
+  },
+  "homepage": "https://github.com/hackwork-tymm0/castbot#readme",
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "chromecast-api": "^0.2.5",
+    "node-telegram-bot-api": "^0.29.0",
+    "tymlogger": "^1.0.0",
+    "write-json-file": "^2.3.0"
+  }
+}

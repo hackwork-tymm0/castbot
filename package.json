@@ -1,6 +1,6 @@
 {
   "name": "castbot",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Telegram Chromecast bot",
   "main": "./src/app/App.js",
   "bin": {
